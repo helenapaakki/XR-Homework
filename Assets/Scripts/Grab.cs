@@ -15,19 +15,20 @@ public class Grab : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       action.action.Enable();
+        action.action.Enable();
 
-        foreach (Grab c in transform.parent.GetComponentsInChildren<Grab>())
-        {
-            if (c != this)
+            foreach (Grab c in transform.parent.GetComponentsInChildren<Grab>())
             {
-                otherHand = this;
+                if (c != this)
+                {
+                    otherHand = this;
+                }
             }
-        }
 
-        lastPosition = transform.position;
-        lastRotation = transform.rotation;
+            lastPosition = transform.position;
+            lastRotation = transform.rotation;
     }
+
 
     // Update is called once per frame
     void Update()
