@@ -1591,7 +1591,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 00c4d4444f94c89498959b7da0808cf7, type: 2}
   m_TargetDisplay: 0
@@ -1963,7 +1963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577241081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grab
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
@@ -2192,6 +2192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Magnifying Glass
       objectReference: {fileID: 0}
+    - target: {fileID: 1263481170301730600, guid: 849ef981216b0cd4186587a7c585fff1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2869796502407761211, guid: 849ef981216b0cd4186587a7c585fff1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2233,8 +2237,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4214445573295357488, guid: 849ef981216b0cd4186587a7c585fff1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214445573295357488, guid: 849ef981216b0cd4186587a7c585fff1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109253585701121839, guid: 849ef981216b0cd4186587a7c585fff1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7109253585701121839, guid: 849ef981216b0cd4186587a7c585fff1, type: 3}
       propertyPath: m_IsActive

@@ -14,5 +14,9 @@ public class Magnify : MonoBehaviour
     void Update()
     {
         magnefying.LookAt(lens);
+
+        Vector3 newRotation = lens.eulerAngles;
+        newRotation.z = 0;
+        lens.eulerAngles = newRotation;
     }
 }
