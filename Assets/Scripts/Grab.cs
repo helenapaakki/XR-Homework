@@ -9,13 +9,20 @@ public class Grab : MonoBehaviour
     public List<Transform> nearObjects = new List<Transform>();
     public Transform grabbedObject = null;
     public InputActionReference action;
+    public InputActionReference other_action;
     bool grabbing = false;
+    bool other_grabbing = false;
     Vector3 lastPosition;
     Quaternion lastRotation;
+    public Transform controller;
+    public Transform other_controller;
+    Vector3 position;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         action.action.Enable();
+        other_action.action.Enable();
 
             foreach (Grab c in transform.parent.GetComponentsInChildren<Grab>())
             {
@@ -34,8 +41,10 @@ public class Grab : MonoBehaviour
     void Update()
     {
         grabbing = action.action.IsPressed();
+        other_grabbing = other_action.action.IsPressed();
+        bool bothHands = grabbing && other_grabbing;
 
-        if (grabbing)
+        if (bothHands || grabbing)
         {
             if (!grabbedObject)
             {
@@ -49,8 +58,24 @@ public class Grab : MonoBehaviour
 
                 grabbedObject.position += deltaPos;
                 grabbedObject.rotation = deltaRot * grabbedObject.rotation;
+                
+                if (bothHands)
+                {
+                    position.x = (controller.position.x + other_controller.position.x) / 2;
+                    position.y = (controller.position.y + other_controller.position.y) / 2;
+                    position.z = (controller.position.z + other_controller.position.z) / 2;
+                } 
+                else
+                {
+                    position.x = controller.position.x;
+                    position.y = controller.position.y;
+                    position.z = controller.position.z;
+                }
+
+                grabbedObject.position = position;
+
             }
-        }
+        } 
 
         else if (grabbedObject)
         {
