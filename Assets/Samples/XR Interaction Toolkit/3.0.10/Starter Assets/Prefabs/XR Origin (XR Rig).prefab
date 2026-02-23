@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6693052528577237899}
   - component: {fileID: 6021103318737937062}
   - component: {fileID: 3499648516249792236}
+  - component: {fileID: 6006103191582770529}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 202364687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0855, y: -0.0225, z: -0.0568}
+  m_LocalPosition: {x: -0.1084, y: -0.0225, z: -0.0568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -218,8 +219,23 @@ MonoBehaviour:
   grabbedObject: {fileID: 0}
   action: {fileID: 0}
   other_action: {fileID: 0}
-  controller: {fileID: 0}
-  other_controller: {fileID: 0}
+  controller: {fileID: 202364688}
+  other_controller: {fileID: 1670256625}
+--- !u!114 &6006103191582770529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202364687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71df7b81f806dd1419f59e549f176f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grip: {fileID: 0}
+  trigger: {fileID: 0}
+  hand: {fileID: 9005045417406562665}
 --- !u!1 &1670256624
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +251,7 @@ GameObject:
   - component: {fileID: 4602308928622519009}
   - component: {fileID: 5845718061202020885}
   - component: {fileID: 4103131977299990313}
+  - component: {fileID: 1048409075716167027}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -435,8 +452,23 @@ MonoBehaviour:
   grabbedObject: {fileID: 0}
   action: {fileID: 0}
   other_action: {fileID: 0}
-  controller: {fileID: 0}
-  other_controller: {fileID: 0}
+  controller: {fileID: 731310908452142017}
+  other_controller: {fileID: 6922003257635650802}
+--- !u!114 &1048409075716167027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670256624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71df7b81f806dd1419f59e549f176f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grip: {fileID: 0}
+  trigger: {fileID: 0}
+  hand: {fileID: 7964769360539055147}
 --- !u!1 &1680501586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270855663187062767, guid: 1392f805216c47742996d4742c80721c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: 0.0911
       objectReference: {fileID: 0}
     - target: {fileID: 8270855663187062767, guid: 1392f805216c47742996d4742c80721c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2037,7 +2069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 56186ccf27ad7864681108ed88349071, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2046,6 +2078,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56186ccf27ad7864681108ed88349071, type: 3}
       insertIndex: -1
       addedObject: {fileID: 398353294132513431}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56186ccf27ad7864681108ed88349071, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7964769360539055147}
   m_SourcePrefab: {fileID: 100100000, guid: 56186ccf27ad7864681108ed88349071, type: 3}
 --- !u!1 &103006411584708987 stripped
 GameObject:
@@ -2061,7 +2096,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103006411584708987}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: bf7151579c38e2a44be94ba8773876c1, type: 3}
   m_Controller: {fileID: 9100000, guid: 4f9e680f72a979a4884b82305e74780e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2074,6 +2109,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7964769360539055147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103006411584708987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203206de2d8a48a48b495b43ffab964b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!4 &731310908452142017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56186ccf27ad7864681108ed88349071, type: 3}
@@ -2101,7 +2149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780270278251679399, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0039
       objectReference: {fileID: 0}
     - target: {fileID: 780270278251679399, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2806,6 +2854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftHand
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf7151579c38e2a44be94ba8773876c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2813,6 +2865,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf7151579c38e2a44be94ba8773876c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2538567340800185347}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf7151579c38e2a44be94ba8773876c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9005045417406562665}
   m_SourcePrefab: {fileID: 100100000, guid: bf7151579c38e2a44be94ba8773876c1, type: 3}
 --- !u!4 &6922003257635650802 stripped
 Transform:
@@ -2846,6 +2901,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9005045417406562665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7729362119275603528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203206de2d8a48a48b495b43ffab964b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1001 &7684238452101615925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2868,7 +2936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3475118261464492563, guid: 9f3369e30fbd31f4bb596b1a99babe83, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: 0.0787
       objectReference: {fileID: 0}
     - target: {fileID: 3475118261464492563, guid: 9f3369e30fbd31f4bb596b1a99babe83, type: 3}
       propertyPath: m_LocalRotation.w
