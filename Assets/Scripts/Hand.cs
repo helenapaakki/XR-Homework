@@ -4,12 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Hand : MonoBehaviour
 {
+    public float speed;
     Animator animator;
     private float gripTarget;
     private float triggerTarget;
     private float gripCurrent;
     private float triggerCurrent;
-    public float speed;
     private string animatorGripParam = "Grip";
     private string animatorTriggerParam = "Trigger";
     internal void SetGrip(float v)
@@ -40,6 +40,7 @@ public class Hand : MonoBehaviour
         {
             gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
             animator.SetFloat(animatorGripParam, gripCurrent);
+            Debug.Log(gripCurrent);
         }
         if (triggerCurrent != triggerTarget)
         {
