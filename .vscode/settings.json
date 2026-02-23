@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "XR-Homework-main.slnx"
+    "dotnet.defaultSolution": "XR-Homework.slnx"
 }
