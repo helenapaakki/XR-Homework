@@ -60,7 +60,6 @@ public class Hand : MonoBehaviour
         {
             gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * animationSpeed);
             animator.SetFloat(animatorGripParam, gripCurrent);
-            Debug.Log(gripCurrent);
         }
         if (triggerCurrent != triggerTarget)
         {
@@ -73,7 +72,7 @@ public class Hand : MonoBehaviour
     {
         var positionWithOffSet = followTarget.position + positionOffSet;
         var distance = Vector3.Distance(positionWithOffSet, transform.position);
-        body.linearVelocity = (positionWithOffSet- transform.position).normalized * (followSpeed * distance);
+        body.linearVelocity = (positionWithOffSet - transform.position).normalized * (followSpeed * distance);
 
         var rotationWithOffSet = followTarget.rotation * Quaternion.Euler(rotationOffSet);
         var q = rotationWithOffSet * Quaternion.Inverse(body.rotation);

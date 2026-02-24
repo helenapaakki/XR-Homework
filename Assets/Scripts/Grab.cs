@@ -17,6 +17,8 @@ public class Grab : MonoBehaviour
     public Transform controller;
     public Transform other_controller;
     Vector3 position;
+    Vector3 velocity;
+    private Collider[] handColliders;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,11 +26,13 @@ public class Grab : MonoBehaviour
         action.action.Enable();
         other_action.action.Enable();
 
+        handColliders = GetComponentsInChildren<Collider>();
+
             foreach (Grab c in transform.parent.GetComponentsInChildren<Grab>())
             {
                 if (c != this)
                 {
-                    otherHand = this;
+                    otherHand = c;
                 }
             }
 
@@ -53,12 +57,37 @@ public class Grab : MonoBehaviour
 
             if (grabbedObject)
             {
+                foreach (Collider col in handColliders)
+                {
+                    col.enabled = false;
+                }
+                
+                Collider[] objectColliders = grabbedObject.GetComponentsInChildren<Collider>();
+                if (objectColliders != null)
+                {
+                    foreach (Collider objCol in objectColliders)
+                    {
+                        foreach (Collider handCol in handColliders)
+                        {
+                            Physics.IgnoreCollision(handCol, objCol, true);
+                        }
+                    }
+                }
+
+                Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+                if (rb)
+                {
+                    rb.isKinematic = true;
+                }
+
                 Vector3 deltaPos = transform.position - lastPosition;
                 Quaternion deltaRot = transform.rotation * Quaternion.Inverse(lastRotation);
 
                 grabbedObject.position += deltaPos;
                 grabbedObject.rotation = deltaRot * grabbedObject.rotation;
                 
+                velocity = (transform.position - lastPosition) / Time.deltaTime;
+
                 if (bothHands)
                 {
                     position.x = (controller.position.x + other_controller.position.x) / 2;
@@ -79,6 +108,32 @@ public class Grab : MonoBehaviour
 
         else if (grabbedObject)
         {
+
+            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+            if (rb)
+            {
+                rb.isKinematic = false;
+                rb.linearVelocity = velocity;
+                rb.angularVelocity = (transform.rotation * Quaternion.Inverse(lastRotation)).eulerAngles / Time.deltaTime;
+            }
+
+            foreach (Collider col in handColliders)
+            {
+                col.enabled = true;
+            }
+
+            Collider[] objectColliders = grabbedObject.GetComponentsInChildren<Collider>();
+            if (objectColliders != null)
+            {
+                foreach (Collider objCol in objectColliders)
+                {
+                    foreach (Collider handCol in handColliders)
+                    {
+                        Physics.IgnoreCollision(handCol, objCol, false);
+                    }
+                }
+            }
+
             grabbedObject = null;
         }
 

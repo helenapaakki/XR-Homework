@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Quit : MonoBehaviour
         action.action.performed += (ctx) =>
         {
             #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+            SceneManager.LoadScene(0);
             #else
             Application.Quit();
             #endif
